@@ -19,9 +19,9 @@ class TitleFragment : Fragment() {
        val binging:FragmentTitleBinding = DataBindingUtil.inflate(
                inflater,R.layout.fragment_title,container,false)
 
-        binging.playButton.setOnClickListener (
-            Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment))
-
+        binging.playButton.setOnClickListener { v: View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
+        }
         setHasOptionsMenu(true)
         return binging.root
 
