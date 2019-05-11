@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentTitleBinding
 
 class TitleFragment : Fragment() {
@@ -16,8 +18,11 @@ class TitleFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
        val binging:FragmentTitleBinding = DataBindingUtil.inflate(
-               inflater,R.layout.fragment_title,container,false
-       )
+               inflater,R.layout.fragment_title,container,false)
+
+        binging.playButton.setOnClickListener (
+            Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment))
+
         return binging.root
 
     }
